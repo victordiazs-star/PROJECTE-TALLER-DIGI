@@ -57,3 +57,11 @@ Aturar el projecte:
 ```bash
 docker-compose down
 ```
+
+Comprovacions realitzades:
+
+- Web funcionant a http://localhost:8080
+- API funcionant a http://localhost:5000/vehicles
+- Ruta de salut funcionant a http://localhost:5000/health
+- Contenidors actius: taller_web, taller_api i taller_db
+- Còpia de seguretat generada dins la carpeta backups/

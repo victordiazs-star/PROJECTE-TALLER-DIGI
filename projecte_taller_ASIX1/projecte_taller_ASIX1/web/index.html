@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller Connectat</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Taller Mecànic Connectat</h1>
+        <p>Gestió digital de clients, vehicles i cites</p>
+    </header>
+
+    <main>
+        <section class="targeta">
+            <h2>Demanar cita</h2>
+            <form id="citaForm">
+                <label for="idClient">Client</label>
+                <select id="idClient" required></select>
+
+                <label for="idVehicle">Vehicle</label>
+                <select id="idVehicle" required></select>
+
+                <label for="data_cita">Data</label>
+                <input type="date" id="data_cita" required>
+
+                <label for="hora_cita">Hora</label>
+                <input type="time" id="hora_cita" required>
+
+                <label for="servei_sollicitat">Servei sol·licitat</label>
+                <input type="text" id="servei_sollicitat" placeholder="Ex: canvi d'oli" required>
+
+                <button type="submit">Enviar cita</button>
+            </form>
+            <p id="missatge"></p>
+        </section>
+
+        <section class="targeta">
+            <h2>Cites registrades</h2>
+            <button id="botoActualitzar">Actualitzar cites</button>
+            <div id="llistaCites"></div>
+        </section>
+
+        <section class="targeta">
+            <h2>Vehicles del taller</h2>
+            <div id="llistaVehicles"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Projecte ASIX 1 - Digitalització d'un taller mecànic</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+# Posar en marxa el projecte
+docker-compose up --build
+
+# Obrir la web
+http://localhost:8080
+
+# Provar API
+http://localhost:5000/vehicles
+http://localhost:5000/appointments
+http://localhost:5000/health
+
+# Fer backup
+bash scripts/backup.sh
+
+# Comprovar serveis
+bash scripts/check_services.sh
+
+# Aturar contenidors
+docker-compose down

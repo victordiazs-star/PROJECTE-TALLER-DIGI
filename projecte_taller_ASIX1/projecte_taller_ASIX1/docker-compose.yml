@@ -1,0 +1,53 @@
+services:
+  db:
+    image: mariadb:11
+    container_name: taller_db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: taller
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./db_schema.sql:/docker-entrypoint-initdb.d/db_schema.sql:ro
+    networks:
+      taller_net:
+        aliases:
+          - db.taller.local
+
+  api:
+    build: ./api
+    container_name: taller_api
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_USER: root
+      DB_PASSWORD: example
+      DB_NAME: taller
+    networks:
+      taller_net:
+        aliases:
+          - api.taller.local
+
+  web:
+    build: ./web
+    container_name: taller_web
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    depends_on:
+      - api
+    networks:
+      taller_net:
+        aliases:
+          - web.taller.local
+
+volumes:
+  db_data:
+
+networks:
+  taller_net:
+    driver: bridge
